@@ -179,3 +179,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Streamlit for the amazing web framework
 - OpenAI, Groq, and Google for their LLM APIs
 - The AI engineering community for inspiration and support
+- Bridging Language and Items for Retrieval and Recommendation
+
+## Citations
+@article{hou2024bridging,
+  title={Bridging Language and Items for Retrieval and Recommendation},
+  author={Hou, Yupeng and Li, Jiacheng and He, Zhankui and Yan, An and Chen, Xiusi and McAuley, Julian},
+  journal={arXiv preprint arXiv:2403.03952},
+  year={2024}
+}
