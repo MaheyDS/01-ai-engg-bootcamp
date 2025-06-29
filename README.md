@@ -1,6 +1,6 @@
 # AI Engineering Bootcamp - Multi-Provider Chatbot
 
-A modern Streamlit-based chatbot application that supports multiple LLM providers including OpenAI, Groq, and Google Gemini. This project demonstrates how to build a unified interface for different AI models with configurable parameters.
+A modern Streamlit-based chatbot application that supports multiple LLM providers including OpenAI, Groq, and Google Gemini. This project demonstrates how to build a unified interface for different AI models with configurable parameters. This project uses the Amazon Electronics product data and customer reviews. You can find and download the Amazon Electronics Category Dataset Overview by clicking [here](https://amazon-reviews-2023.github.io/#grouped-by-category)
 
 ## 🚀 Features
 
