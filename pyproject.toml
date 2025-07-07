@@ -10,5 +10,6 @@ dependencies = [
     "groq",
     "openai",
     "pydantic",
-    "streamlit"
+    "streamlit",
+    "qdrant-client"
 ]
