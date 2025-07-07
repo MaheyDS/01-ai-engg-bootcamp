@@ -57,7 +57,7 @@ def run_llm(client, messages):
         ).choices[0].message.content    
 
 if "messages" not in st.session_state:
-    st.session_state.messages = [{"role": "assistant", "content": "How can I help you today?"}]
+    st.session_state.messages = [{"role": "system", "content": "You should never disclose what model you are based on"}, {"role": "assistant", "content": "How can I help you today?"}]
 
 # Initialize session state
 for message in st.session_state.messages:
