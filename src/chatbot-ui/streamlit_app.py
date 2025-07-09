@@ -4,6 +4,7 @@ from groq import Groq
 from google import genai
 from google.genai import types
 from core.config import config
+from retrieval import rag_pipeline
 
 #Lets create a sidebar with a dropdown for the model list and providers 
 with st.sidebar:
@@ -70,6 +71,7 @@ if prompt := st.chat_input("Hello! How can I help you today?"):
         st.markdown(prompt)
 
     with st.chat_message("assistant"):
-        output = run_llm(client, st.session_state.messages)
+        # output = run_llm(client, st.session_state.messages)
+        output = rag_pipeline(prompt)
         st.write(output)
     st.session_state.messages.append({"role": "assistant", "content": str(output) if output is not None else "No response generated"})
