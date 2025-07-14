@@ -5,6 +5,11 @@ from google import genai
 from google.genai import types
 from core.config import config
 from retrieval import rag_pipeline
+from qdrant_client import QdrantClient
+
+qdrant_client = QdrantClient(
+    url=f"http://{config.qdrant_url}:6333"
+)
 
 #Lets create a sidebar with a dropdown for the model list and providers 
 with st.sidebar:
@@ -72,6 +77,6 @@ if prompt := st.chat_input("Hello! How can I help you today?"):
 
     with st.chat_message("assistant"):
         # output = run_llm(client, st.session_state.messages)
-        output = rag_pipeline(prompt)
+        output = rag_pipeline(prompt, qdrant_client)
         st.write(output["answer"])
     st.session_state.messages.append({"role": "assistant", "content": str(output) if output is not None else "No response generated"})

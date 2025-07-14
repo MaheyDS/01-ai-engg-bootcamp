@@ -1,11 +1,8 @@
-from qdrant_client import QdrantClient
 import openai
-from core.config import config
+from chatbot_ui.core.config import config
 from langsmith import traceable, get_current_run_tree
 
-qdrant_client = QdrantClient(
-    url=f"http://{config.qdrant_url}:6333"
-)
+
 
 @traceable(
     name="embed_query",
@@ -30,7 +27,7 @@ def get_embeddings(text, model_name=config.embedding_model):
     name="retrieve_topn",
     run_type="retriever",
 )
-def retrieve_context(query, top_k=5):
+def retrieve_context(query, qdrant_client, top_k=5):
     query_embeddings = get_embeddings(query)
     results = qdrant_client.query_points(
         collection_name=config.qdrant_collection_name,
@@ -122,9 +119,9 @@ def generate_answer(prompt):
 @traceable(
     name="rag_pipeline"
 )
-def rag_pipeline(question, top_k=5):
+def rag_pipeline(question, qdrant_client, top_k=5):
 
-    retrieved_context = retrieve_context(question, top_k)
+    retrieved_context = retrieve_context(question, qdrant_client, top_k)
     prompt = build_prompt(retrieved_context, question)
     answer = generate_answer(prompt)
     final_result = {

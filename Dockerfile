@@ -18,10 +18,10 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen
 
 # Copy Application Code
-COPY src/chatbot-ui ./src/chatbot-ui/
+COPY src/chatbot_ui ./src/chatbot_ui/
 
 # Pre-compile Python files to Bytecode
-RUN python -m compileall ./src/chatbot-ui
+RUN python -m compileall ./src/chatbot_ui
 
 # Set path to use the environment variables
 ENV PATH="/app/.venv/bin:$PATH"
@@ -38,4 +38,4 @@ USER app
 EXPOSE 8501
 
 #Command to run the Streamlit app
-CMD ["streamlit", "run", "src/chatbot-ui/streamlit_app.py", "--server.address=0.0.0.0"]    
+CMD ["streamlit", "run", "src/chatbot_ui/streamlit_app.py", "--server.address=0.0.0.0"]    
