@@ -105,7 +105,7 @@ Then access the app at http://localhost:8502
 ```
 01-ai-engg-bootcamp/
 ├── src/
-│   └── chatbot-ui/
+│   └── chatbot_ui/
 │       ├── core/
 │       │   └── config.py          # Configuration management
 │       └── streamlit_app.py       # Main Streamlit application
